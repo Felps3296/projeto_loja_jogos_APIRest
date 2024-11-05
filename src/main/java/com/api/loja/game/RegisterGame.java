@@ -20,5 +20,4 @@ public record RegisterGame(
         BigDecimal price,
         @Min(0)
         int stock_quantity) {
-
 }
