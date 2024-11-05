@@ -15,7 +15,7 @@ public class GameDAO implements GameRepository{
 
     @Override
     public void save(RegisterGame game) {
-        String sql = "INSERT INTO games (title, genre, releaseDate, ageRating) VALUES (?, ?, ?, ?)";
-        jdbcTemplate.update(sql, game.title(), game.genre(), game.releaseDate(), game.ageRating());
+        String sql = "INSERT INTO games (title, genre, releaseDate, ageRating, price, stock_quantity) VALUES (?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql, game.title(), game.genre(), game.releaseDate(), game.ageRating(), game.price(), game.stock_quantity());
     }
 }

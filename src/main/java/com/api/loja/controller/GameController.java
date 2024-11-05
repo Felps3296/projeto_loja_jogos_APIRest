@@ -3,7 +3,6 @@ package com.api.loja.controller;
 import com.api.loja.game.GameDAO;
 import com.api.loja.game.RegisterGame;
 import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +22,8 @@ public class GameController {
 
     @PostMapping
     public ResponseEntity<String> register(@RequestBody @Valid RegisterGame game){
+
         gameDAO.save(game);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        return ResponseEntity.ok("Game saved successfully");
     }
 }
