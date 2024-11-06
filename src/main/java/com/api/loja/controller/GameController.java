@@ -1,9 +1,6 @@
 package com.api.loja.controller;
 
-import com.api.loja.game.Game;
-import com.api.loja.game.GameDAO;
-import com.api.loja.game.RegisterGame;
-import com.api.loja.game.UpdateGame;
+import com.api.loja.game.*;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -25,7 +22,7 @@ public class GameController {
     }
 
     @PostMapping
-    public ResponseEntity<String> register(@RequestBody @Valid RegisterGame game){
+    public ResponseEntity register(@RequestBody @Valid RegisterGame game){
 
         gameDAO.save(game);
         return ResponseEntity.status(HttpStatus.CREATED).body("Game saved successfully");
@@ -39,10 +36,10 @@ public class GameController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> update(@PathVariable Long id, @RequestBody UpdateGame game){
+    public ResponseEntity<DetailsGame> update(@PathVariable Long id, @RequestBody UpdateGame game){
 
         gameDAO.update(id, game);
-        return ResponseEntity.status(HttpStatus.OK).body("Game updated successfully");
+        return ResponseEntity.ok(new DetailsGame(game));
     }
 
     @DeleteMapping("/{id}")

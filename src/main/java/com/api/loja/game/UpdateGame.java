@@ -1,5 +1,7 @@
 package com.api.loja.game;
 
-public record UpdateGame(String title, String genre, String releaseDate, String ageRating, String price, String stock_quantity ) {
+import java.math.BigDecimal;
+
+public record UpdateGame(String title, String genre, String releaseDate, String ageRating, BigDecimal price, int stock_quantity ) {
 
 }
