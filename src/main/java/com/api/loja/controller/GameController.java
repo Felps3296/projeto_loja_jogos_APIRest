@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/games")
+@RequestMapping("/game")
 public class GameController {
 
     private final GameDAO gameDAO;
@@ -48,6 +48,5 @@ public class GameController {
         gameDAO.delete(id);
         return ResponseEntity.noContent().build();
     }
-
 }
 
