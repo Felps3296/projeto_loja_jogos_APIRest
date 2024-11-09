@@ -1,7 +1,5 @@
 package com.api.loja.address;
 
-import com.api.loja.customer.Customer;
-import com.api.loja.customer.RegisterCustomer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

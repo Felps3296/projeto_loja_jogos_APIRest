@@ -22,9 +22,9 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity register(@RequestBody RegisterCustomer registerCustomer) {
+    public ResponseEntity register(@RequestBody RegisterCustomer Customer) {
 
-        customerDAO.save(registerCustomer);
+        customerDAO.save(Customer);
         return ResponseEntity.status(HttpStatus.CREATED).body("Customer saved successfully");
     }
 }

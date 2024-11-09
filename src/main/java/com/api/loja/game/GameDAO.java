@@ -19,6 +19,7 @@ public class GameDAO implements GameRepository{
 
     @Override
     public void save(RegisterGame game) {
+
         String sql = "INSERT INTO games (title, genre, releaseDate, ageRating, price, stock_quantity) VALUES (?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql,
                 game.title(),
@@ -31,12 +32,14 @@ public class GameDAO implements GameRepository{
 
     @Override
     public List<Game> findAll(Pageable paginacao) {
+
         String sql = "SELECT id, title, genre, releaseDate, ageRating, price, stock_quantity FROM games";
         return jdbcTemplate.query(sql, new GameRowMapper());
     }
 
     @Override
     public void update(Long id, UpdateGame game) {
+
         String sql = "UPDATE games SET title = ?, genre = ?, releaseDate = ?, ageRating = ?, price = ?, stock_quantity = ? WHERE id = ?";
         jdbcTemplate.update(sql,
                 game.title(),
@@ -50,6 +53,7 @@ public class GameDAO implements GameRepository{
 
     @Override
     public void delete(Long id) {
+
         String sql = "DELETE FROM games WHERE id = ?";
         jdbcTemplate.update(sql, id);
     }
