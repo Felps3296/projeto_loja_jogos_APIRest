@@ -9,10 +9,10 @@ import java.math.BigDecimal;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode(of = "pk_game")
 public class Game {
 
-    private Long id;
+    private Long pk_game;
     private String title;
     private String genre;
     private String releaseDate;
@@ -22,8 +22,8 @@ public class Game {
 
     public Game(RegisterGame game){
 
+        this.pk_game = game.pk_game();
         this.title = game.title();
-        this.id = game.id();
         this.genre = game.genre();
         this.releaseDate = game.releaseDate();
         this.ageRating = game.ageRating();

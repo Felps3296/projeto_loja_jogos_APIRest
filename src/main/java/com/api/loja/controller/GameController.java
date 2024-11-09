@@ -35,17 +35,17 @@ public class GameController {
         return ResponseEntity.ok(gamesPage);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<DetailsGame> update(@PathVariable Long id, @RequestBody UpdateGame game){
+    @PutMapping("/{pk_game}")
+    public ResponseEntity<DetailsGame> update(@PathVariable Long pk_game, @RequestBody UpdateGame game){
 
-        gameDAO.update(id, game);
+        gameDAO.update(pk_game, game);
         return ResponseEntity.ok(new DetailsGame(game));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> delete(@PathVariable Long id){
+    @DeleteMapping("/{pk_game}")
+    public ResponseEntity<String> delete(@PathVariable Long pk_game){
 
-        gameDAO.delete(id);
+        gameDAO.delete(pk_game);
         return ResponseEntity.noContent().build();
     }
 }

@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 
 public record RegisterGame(
 
-        Long id,
+        Long pk_game,
         @NotBlank
         String title,
         @NotBlank
